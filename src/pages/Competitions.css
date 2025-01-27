@@ -1,0 +1,75 @@
+.competitions-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .competitions-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .competitions-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .competitions-table thead {
+    background-color: #f9f9f9;
+  }
+  
+  .competitions-table th {
+    text-align: left;
+    padding: 12px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .competitions-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Roligere farger for hver gruppe */
+  .group-LGT {
+    background-color: #eaf4fb; /* Lys blå */
+  }
+  
+  .group-NW {
+    background-color: #eaeafa; /* Lys gul */
+  }
+  
+  .group-SxK {
+    background-color: #eaf4fb; /* Lys lilla */
+  }
+  
+  .group-SxE {
+    background-color: #eaf4fb; /* Lys grønn */
+  }
+  
+  .group-SxU {
+    background-color: #eaeafa; /* Lys rosa */
+  }
+  
+  .group-SxI {
+    background-color: #eaeafa; /* Lys blå-lilla */
+  }
+  
+  .group-Merker {
+    background-color: #f5f5f5; /* Lys grå */
+  }
+  
+  /* Hover-effekt */
+  .competitions-table tr:hover {
+    background-color: #e0e0e0; /* Mørkere grå for hover */
+  }
+  
+  .competitions-table td:nth-child(3),
+  .competitions-table td:nth-child(4) {
+    color: #555;
+    font-size: 14px;
+  }

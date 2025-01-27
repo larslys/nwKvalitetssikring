@@ -1,0 +1,188 @@
+/* Generelle stiler */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Start siden øverst */
+  min-height: 100vh;
+  color: #333;
+}
+
+.container {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Tittel */
+h1, h2 {
+  font-size: 24px;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Flex-oppsett for grupper */
+.checkbox-group {
+  display: flex;
+  justify-content: space-between; /* Plasser grupper på samme rad */
+  flex-wrap: wrap; /* Tillat radbryting hvis nødvendig */
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Grid for konkurranser i hver gruppe */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* En kolonne for hver konkurranse */
+  gap: 10px; /* Avstand mellom konkurransene */
+}
+
+.card legend {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Knapper */
+button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.reset-btn {
+  background-color: #dc3545;
+}
+
+button.reset-btn:hover {
+  background-color: #b02a37;
+}
+
+/* Resultatliste */
+.results {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #eef;
+  border-radius: 8px;
+  border: 1px solid #cce;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Listeelementer */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px 12px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+/* Responsivt oppsett */
+@media (max-width: 1024px) {
+  .checkbox-group {
+    flex-direction: column; /* Sett grupper under hverandre på små skjermer */
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr; /* En kolonne per gruppe */
+  }
+
+  .container {
+    max-width: 90%;
+  }
+}
+
+
+/* Navigasjonsstil */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: none;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  background-color: none;
+}
+
+nav ul li {
+  margin: 0;
+  display: flex;
+  background-color: none ;
+  border: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #0056b3;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #003f8a;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #0056b3;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #003f8a;
+}
+
+nav ul li a.active {
+  background-color: #007bff; /* Lysere farge for aktiv side */
+  color: #fff; /* Sørg for at teksten fortsatt er lesbar */
+  font-weight: bold;
+}
