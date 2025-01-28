@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CompetitionSelector from "../components/CompetitionSelector";
+import Results from "../components/Results";
 import competitions from "../utils/competitions";
+import InfoBox from "../components/InfoBox";
 
 function Home() {
   const [qualifications, setQualifications] = useState([]);
@@ -9,33 +11,18 @@ function Home() {
 
   const handleEvaluate = () => {
     const dog = { qualifications, startedCompetitions };
-  
+
     const evaluateParticipation = (dog, competition) => {
-      console.log(`Evaluating competition: ${competition.competition}`);
-      console.log(`Requirements: ${competition.requirements}`);
-      console.log(`Dog Qualifications: ${dog.qualifications}`);
-      console.log(`Blocks: ${competition.blocks}`);
-      console.log(`Started Competitions: ${dog.startedCompetitions}`);
-  
       const meetsRequirements = competition.requirements.every((req) =>
         dog.qualifications.includes(req)
       );
-  
+
       const isBlockedByHigherLevel = competition.blocks.some((block) =>
         dog.startedCompetitions.includes(block)
       );
-  
-      console.log(`Meets Requirements: ${meetsRequirements}`);
-      console.log(`Is Blocked By Higher Level: ${isBlockedByHigherLevel}`);
-  
+
       const canParticipate = meetsRequirements && !isBlockedByHigherLevel;
-  
-      console.log(
-        `Result for ${competition.competition}: ${
-          canParticipate ? "✅ Can Participate" : "❌ Cannot Participate"
-        }`
-      );
-  
+
       return {
         competition: competition.competition,
         canParticipate,
@@ -48,11 +35,11 @@ function Home() {
           : "Hunden er blokkert av et høyere nivå i samme kategori.",
       };
     };
-  
+
     const evaluation = competitions.map((comp) =>
       evaluateParticipation(dog, comp)
     );
-  
+
     setResults(evaluation);
   };
 
@@ -65,6 +52,7 @@ function Home() {
   return (
     <div className="container">
       <h1>Nosework - konkurranse kvalifisering</h1>
+      <InfoBox/>
       <CompetitionSelector
         competitions={competitions}
         qualifications={qualifications}
@@ -74,19 +62,7 @@ function Home() {
         handleEvaluate={handleEvaluate}
         handleReset={handleReset}
       />
-      {results.length > 0 && (
-        <div className="results">
-          <h3>Resultater</h3>
-          <ul>
-            {results.map((result) => (
-              <li key={result.competition}>
-                {result.competition}:{" "}
-                {result.canParticipate ? "✅" : "❌"} - {result.reason}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {results.length > 0 && <Results results={results} />}
     </div>
   );
 }

@@ -31,14 +31,14 @@ function Competitions() {
             const group = getGroup(comp.competition);
             return (
               <tr key={comp.competition} className={`group-${group}`}>
-                <td>{group}</td>
-                <td>{comp.competition}</td>
-                <td>
+                <td data-label="Gruppe">{group}</td>
+                <td data-label="Konkurranse">{comp.competition}</td>
+                <td data-label="Krav">
                   {comp.requirements.length > 0
                     ? comp.requirements.join(", ")
                     : "Ingen"}
                 </td>
-                <td>
+                <td data-label="Blokkerer">
                   {comp.blocks.length > 0 ? comp.blocks.join(", ") : "Ingen"}
                 </td>
               </tr>

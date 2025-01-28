@@ -1,75 +1,187 @@
+/* Modern variables */
+:root {
+  --primary-color: #2D3436;
+  --secondary-color: #0984E3;
+  --background-light: #F8F9FA;
+  --background-alternate: #EDF2F7;
+  --text-primary: #2D3436;
+  --text-secondary: #636E72;
+  --border-color: #DFE6E9;
+  --hover-color: rgba(9, 132, 227, 0.1);
+  --transition-speed: 0.3s;
+}
+
+/* Override container styles for competitions */
 .competitions-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.competitions-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.competitions-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.competitions-table thead {
+  background-color: var(--background-light);
+}
+
+.competitions-table th {
+  text-align: left;
+  padding: 0.75rem 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.competitions-table td {
+  padding: 0.625rem 0.875rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  transition: all var(--transition-speed) ease;
+}
+
+/* Simplified alternating group styling */
+.group-LGT,
+.group-SxK,
+.group-SxE,
+.group-Merker {
+  background-color: var(--background-light);
+}
+
+.group-NW,
+.group-SxU,
+.group-SxI {
+  background-color: var(--background-alternate);
+}
+
+/* Modern hover effects */
+.competitions-table tbody tr {
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.competitions-table tbody tr:hover {
+  background-color: var(--hover-color);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced mobile responsive design */
+@media (max-width: 768px) {
+  body {
+    display: block;  /* Override flex display from App.css */
+    padding: 0;
+    margin: 0;
   }
-  
-  .competitions-container h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+
+  .competitions-container {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
   }
-  
+
   .competitions-table {
+    display: block;
     width: 100%;
-    border-collapse: collapse;
+    border: none;
+    background: transparent;
   }
-  
+
   .competitions-table thead {
-    background-color: #f9f9f9;
+    display: none;
   }
-  
-  .competitions-table th {
-    text-align: left;
-    padding: 12px;
-    font-weight: bold;
-    border-bottom: 2px solid #ddd;
+
+  .competitions-table tbody {
+    display: block;
+    width: 100%;
   }
-  
+
+  .competitions-table tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
   .competitions-table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    display: block;
+    width: auto;
+    padding: 0.75rem;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
   }
-  
-  /* Roligere farger for hver gruppe */
-  .group-LGT {
-    background-color: #eaf4fb; /* Lys blå */
+
+  .competitions-table td:last-child {
+    border-bottom: none;
   }
-  
-  .group-NW {
-    background-color: #eaeafa; /* Lys gul */
+
+  .competitions-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
   }
-  
-  .group-SxK {
-    background-color: #eaf4fb; /* Lys lilla */
-  }
-  
-  .group-SxE {
-    background-color: #eaf4fb; /* Lys grønn */
-  }
-  
-  .group-SxU {
-    background-color: #eaeafa; /* Lys rosa */
-  }
-  
+
+  /* Override group background colors on mobile */
+  .group-LGT,
+  .group-SxK,
+  .group-SxE,
+  .group-Merker,
+  .group-NW,
+  .group-SxU,
   .group-SxI {
-    background-color: #eaeafa; /* Lys blå-lilla */
+    background-color: white !important;
   }
-  
-  .group-Merker {
-    background-color: #f5f5f5; /* Lys grå */
+
+  /* Add subtle color indicator for groups */
+  .competitions-table tr::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background-color: var(--background-alternate);
+    border-radius: 8px 8px 0 0;
   }
-  
-  /* Hover-effekt */
-  .competitions-table tr:hover {
-    background-color: #e0e0e0; /* Mørkere grå for hover */
+
+  .group-LGT::before,
+  .group-SxK::before,
+  .group-SxE::before,
+  .group-Merker::before {
+    background-color: var(--background-light);
   }
-  
-  .competitions-table td:nth-child(3),
-  .competitions-table td:nth-child(4) {
-    color: #555;
-    font-size: 14px;
+
+  .group-NW::before,
+  .group-SxU::before,
+  .group-SxI::before {
+    background-color: var(--background-alternate);
   }
+}

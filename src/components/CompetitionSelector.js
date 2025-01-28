@@ -79,7 +79,37 @@ function CompetitionSelector({
   return (
     <div className="competition-selector">
       <fieldset>
-        <legend>Kvalifikasjoner</legend>
+        <legend> Har startet i</legend>
+        <div className="checkbox-group">
+          {categories.map((category) => (
+            <fieldset key={category.label} className="card">
+              <legend>{category.label}</legend>
+              <div className="checkbox-grid">
+                {competitions
+                  .filter((comp) => filterCompetitions(comp, category))
+                  .map((comp) => (
+                    <label key={comp.competition}>
+                      <input
+                        type="checkbox"
+                        value={comp.competition}
+                        checked={startedCompetitions.includes(comp.competition)}
+                        onChange={(e) =>
+                          handleStartedChange(comp.competition, e.target.checked)
+                        }
+                      />
+                      {comp.competition}
+                    </label>
+                  ))}
+              </div>
+            </fieldset>
+          ))}
+        </div>
+      </fieldset>
+
+
+    <br/>
+      <fieldset>
+        <legend>Har Kvalifikasjoner/Titler</legend>
         <div className="checkbox-group">
           {categories.map((category) => (
             <fieldset key={category.label} className="card">
@@ -106,33 +136,9 @@ function CompetitionSelector({
         </div>
       </fieldset>
 
-      <fieldset>
-        <legend>Startede Konkurranser</legend>
-        <div className="checkbox-group">
-          {categories.map((category) => (
-            <fieldset key={category.label} className="card">
-              <legend>{category.label}</legend>
-              <div className="checkbox-grid">
-                {competitions
-                  .filter((comp) => filterCompetitions(comp, category))
-                  .map((comp) => (
-                    <label key={comp.competition}>
-                      <input
-                        type="checkbox"
-                        value={comp.competition}
-                        checked={startedCompetitions.includes(comp.competition)}
-                        onChange={(e) =>
-                          handleStartedChange(comp.competition, e.target.checked)
-                        }
-                      />
-                      {comp.competition}
-                    </label>
-                  ))}
-              </div>
-            </fieldset>
-          ))}
-        </div>
-      </fieldset>
+
+
+
 
       <div className="button-group">
         <button onClick={handleEvaluate} className="evaluate-btn">
