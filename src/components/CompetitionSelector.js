@@ -54,7 +54,7 @@ function CompetitionSelector({
 
     setStartedCompetitions((prev) =>
       checked
-        ? [...new Set([...prev, ...relatedStartedCompetitions])]
+        ? [...new Set([...prev, selected, ...relatedStartedCompetitions])]
         : prev.filter((c) => ![selected, ...relatedStartedCompetitions].includes(c))
     );
   };
@@ -132,13 +132,11 @@ function CompetitionSelector({
                   ))}
               </div>
             </fieldset>
+
+            
           ))}
         </div>
       </fieldset>
-
-
-
-
 
       <div className="button-group">
         <button onClick={handleEvaluate} className="evaluate-btn">
