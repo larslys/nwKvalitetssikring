@@ -6,6 +6,8 @@ import competitions from "./utils/competitions"; // Importerer konkurranselisten
 import { evaluateDog } from "./utils/evaluate"; // Importerer evalueringslogikken
 import "./App.css";
 import Competitions from "./pages/Competitions";
+import DuoForm from "./pages/DuoForm";
+
 
 function App() {
   // States for kvalifikasjoner, startede konkurranser og resultater
@@ -48,6 +50,16 @@ function App() {
             </NavLink>
             
         </li>
+
+        <li>
+          <NavLink
+            to="/duo-form"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Registrer Ekvipasje
+          </NavLink>
+        </li>
+
           <li>
             <NavLink
               to="/other"
@@ -78,6 +90,8 @@ function App() {
       />
       <Route path="/other" element={<OtherFunctions />} />
       <Route path="/competitions" element={<Competitions />} />
+      <Route path="/duo-form" element={<DuoForm />} />
+      
     </Routes>
   </Router>
   );
